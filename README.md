@@ -23,5 +23,5 @@ This repository contains code and resources for a deep learning project that per
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/YourUsername/Automated-Medical-Image-Classification.git
+   git clone https://github.com/AliNikoo73/Automated-Medical-Image-Classification.git
    cd Automated-Medical-Image-Classification
