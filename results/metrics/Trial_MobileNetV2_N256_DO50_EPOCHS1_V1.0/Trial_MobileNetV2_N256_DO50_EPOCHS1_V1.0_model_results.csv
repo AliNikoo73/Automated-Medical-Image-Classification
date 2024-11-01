@@ -1,0 +1,2 @@
+Epoch,Train Accuracy (%),Train Loss,Val Accuracy (%),Val Loss,Test Accuracy (%),Test Loss
+1,72.88,0.7585,77.67,0.5198,80.05,0.4825
