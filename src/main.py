@@ -63,7 +63,7 @@ classes = os.listdir(data_path)
 # Specify parameters
 img_size = (224, 224)  # Updated to match the expected input shape of pre-trained models
 batch_size = 32
-initial_epochs = 1  # Initial training with frozen base model layers
+initial_epochs = 50  # Initial training with frozen base model layers
 NNeuron = 256
 DO_factor = 0.5
 version = "1.0"  # Code version
@@ -113,9 +113,9 @@ index_to_class = {v: k for k, v in class_indices.items()}
 # List of base models to use
 base_models = {
     # "ResNet152V2": ResNet152V2,
-    # "DenseNet201": DenseNet201,
+    "DenseNet201": DenseNet201,
     # "VGG16": VGG16,
-    # "VGG19": VGG19,
+    "VGG19": VGG19,
     # "Xception": Xception,
     # "InceptionV3": InceptionV3,
     "MobileNetV2": MobileNetV2,
