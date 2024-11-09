@@ -64,8 +64,8 @@ classes = os.listdir(data_path)
 img_size = (224, 224)  # Updated to match the expected input shape of pre-trained models
 batch_size = 32
 initial_epochs = 50  # Initial training with frozen base model layers
-NNeuron = 256
-DO_factor = 0.5
+NNeuron = 256 # Number of neurons in the dense layer
+DO_factor = 0.5 # Fraction of the number of input units to dropout
 version = "1.0"  # Code version
 
 # Use simple ImageDataGenerator
@@ -153,8 +153,8 @@ def create_fine_tune_model(base_model_name, NNeuron, DO_factor):
     x = base_model.output
     x = GlobalAveragePooling2D()(x)  # Global average pooling
     x = Dense(NNeuron, activation="relu")(x)  # Fully connected layer
-    x = BatchNormalization()(x)
-    x = Dropout(DO_factor)(x)
+    x = BatchNormalization()(x) # Batch normalization layer
+    x = Dropout(DO_factor)(x) # Dropout layer
     predictions = Dense(train_generator.num_classes, activation="softmax")(x)  # Output layer
     
     layers_conf_list = [
@@ -196,7 +196,6 @@ def fine_tune_model(model, base_model, unfreeze_from):
     model.compile(optimizer=SGD(learning_rate=0.0001, momentum=0.9), loss="categorical_crossentropy", metrics=["accuracy"])
     return model
 
-# Function to save model results
 # Function to save model results
 def save_results(trial_name, history, val_accuracy, val_loss, test_accuracy, test_loss):
     """Saves model results in a CSV file.
